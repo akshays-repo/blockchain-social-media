@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Blocknet</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src=/javascripts/cryptoUtils.js></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container text-center">
+
+
+    <form class="col-md-4 text-center m-auto border rounded p-4">
+      <h1>Signup</h1>
+      <br><br>
+      <div class="text-center m-auto pImgCtr rounded-circle shadow">
+        <img class="" id="imgPreview" src="https://www.redditstatic.com/avatars/avatar_default_03_4856A3.png"
+          alt="your image" />
+      </div>
+      <div class="upload-btn-wrapper">
+        <button class="btn ">+ photo</button>
+        <input id="imgInp" type="file" name="myfile" />
+      </div>
+      <div class="form-group text-left">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name" required>
+        <small id="nameTxt" class="form-text text-muted">You dont need a password, a secure key will be generated
+          automatically.</small>
+      </div>
+      <button type="button" class="btn btn-block btn-primary" onclick="generateProfile()">Generate</button>
+      
+      <div id="downloadCtr" style="display: none;">
+        <br>
+        <a id="download" href="#" class="btn btn-primary btn-block" download="profile.bf">Download file</a>
+      </div>
+    </form>
+
+  </div>
+
+</body>
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#imgPreview').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#imgInp").change(function () {
+    readURL(this);
+  });
+  function generateProfile() {
+
+    var privKey = cryptoUtils.generatePrivateKey()
+    var pubKey = cryptoUtils.privateKeyToPublicKey(privKey)
+    var addr = cryptoUtils.publicKeyToAddress(pubKey)
+    var profileImage = $('#imgPreview').attr('src');
+    var profileName = $('#name').val();
+    var userProfileData = {
+      privateKey: privKey,
+      publicKey: pubKey,
+      address: addr,
+      profileImage,
+      profileName
+    }
+    
+    console.log(userProfileData)
+    $('#download').attr('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(userProfileData)));
+    $('#downloadCtr').show(100)
+  }
+
+
+</script>
+
+</html>

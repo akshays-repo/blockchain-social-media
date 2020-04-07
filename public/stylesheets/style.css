@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+div {
+  border-radius: 3px;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.729);
+  display: inline-block;
+  width: 120px;
+  margin-left: -120px;
+  bottom: 0;
+  color: #fff;
+}
+
+.upload-btn-wrapper:hover, .upload-btn-wrapper .btn:hover {
+  background-color: black;
+  color: #fff !important;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+#imagePreview {
+  width: 120px;
+}
+
+.pImgCtr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+}
+
+.pImgCtr img {
+  object-fit: cover;
+  flex-shrink: 0;
+  width: 120px;
+}
+
+.postImgCtr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.postImgCtr img {
+  object-fit: cover;
+  flex-shrink: 0;
+  width: 652px;
+}
+
+.navHead {
+  background: linear-gradient(135deg, #5b247a 0%, #1bcedf 100%);
+  color: #fff !important;
+  padding-left: 210px;
+}
+
+.navHead a {
+  color: white;
+}
+
+.mCtr {
+  display: grid;
+  grid-template-columns: 300px 720px 300px;
+  padding-left: 200px;
+  padding-top: 10px;
+  grid-column-gap: 10px;
+}
+
+.p31 {
+  position: fixed;
+  width: 300px;
+}
+
+.p11 {
+  position: fixed;
+  width: 300px;
+}
+
+#pAddress {
+  word-wrap: break-word;
+  color: rgb(71, 70, 70);
+  width: 128px;
+  margin: auto;
+  font-size: 12px;
+}
+
+.blockData {
+  background: linear-gradient(135deg, #42e695 0%, #3bb2b8 100%);
+  color: white;
+}
+
+.post-upload-btn-wrapper {
+  position: absolute;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.055);
+  display: inline-block;
+  float: left;
+  width: 652px;
+  height: 400px;
+  color: #000;
+  padding-top: 200px;
+}
+
+.post-upload-btn-wrapper:hover, .post-upload-btn-wrapper .btn:hover {
+  background-color: rgba(59, 59, 59, 0.247);
+  color: #fff !important;
+}
+
+.post-upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  width: 652px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.itemImgCtr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.itemImgCtr img {
+  object-fit: cover;
+  flex-shrink: 0;
+  width: 752px;
+}
+
+#searchBar {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#searchBar:hover, #searchBar:active {
+  background-color: rgba(255, 255, 255, 0.808);
+}

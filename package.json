@@ -1,0 +1,25 @@
+{
+  "name": "blocknet",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootflat": "^2.0.4",
+    "bootstrap": "^4.4.1",
+    "bs58": "^4.0.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "elliptic": "^6.5.2",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "js-sha256": "^0.9.0",
+    "morgan": "~1.9.1",
+    "nedb": "^1.8.0",
+    "ripemd160": "^2.0.2",
+    "secure-random": "^1.1.2"
+  }
+}
