@@ -3,8 +3,11 @@
 
 <head>
   <title>Blocknet</title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src=/javascripts/cryptoUtils.js></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="js/like-dislike.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
@@ -23,7 +26,9 @@
     integrity="sha256-8/eLH6vbqijhNfL0aBf4rG0Z0FzenNbYbuR2V/zSIbE=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
-
+  <style>
+    
+    </style>
 
 </head>
 
@@ -438,7 +443,16 @@
             <div class="p-3 itemText">
               <div ><b>${element.data.data.title}</b></div><br>
               <div class="itemImgCtr "><img class="itemImgPreview" src="${element.data.data.content}"/> </div>
+              <div id="demo">
+            <button class="like">Like 
+              <span class="likes"></span>
+            </button>
+            <button class="dislike">Dislike 
+              <span class="dislikes"></span>
+            </button>
+          </div>
             </div>
+            
           </div><br>
           `
             $('#postCtr').append(tmp)
@@ -452,10 +466,37 @@
             <div class="p-3 itemText">
               <div ><b>${element.data.data.title}</b></div><br> 
               <div >${element.data.data.content}</div>
+              <div id="demo">
+              <button class="like">Like 
+                <span class="likes"></span>
+              </button>
+              <button class="dislike">Dislike 
+                <span class="dislikes"></span>
+              </button>
             </div>
+              
+             
+            </div>
+
+            
+
+
+            
           </div><br>
           `
             $('#postCtr').append(tmp)
+            
+            $('#demo').likeDislike({
+
+// update like / dislike counters
+    click: function (btnType, likes, dislikes, event) {
+        var likesElem = $(this).find('.likes');
+        var dislikedsElem = $(this).find('.dislikes');
+        likesElem.text(parseInt(likesElem.text()) + likes);
+        dislikedsElem.text(parseInt(dislikedsElem.text()) + dislikes);
+    }
+
+});
 
           }
 
@@ -463,6 +504,7 @@
       })
   }
   populateHome()
+ 
 
 </script>
 
